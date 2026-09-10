@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ade3cc;
+
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 15px 30px;
+    background-color: #42b585;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.header h1 {
+
+    color: #f4f7f8;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+/* contenedor principal*/
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px;
+}
+
+/* tarjeta de mascota */
+.tarjeta-perro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #61977b;
+    border: 1px solid #ffde96;
+}
+
+/* lado izquiedo foto descrpicion */
+.info-perro {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 250px;
+
+}
+
+.foto-perro {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion h1 {
+    color: #f6faf4;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.descripcion p {
+    color: #fbf8f8;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.formulario-adopcion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 250px;
+    padding: 15px;
+    border-radius: 30px;
+    /* color de fondo */
+    background-color: #dcf4d9;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.formulario-adopcion h3 {
+
+    color: #050505;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.formulario-adopcion label {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    color: #061055;
+}
+
+.formulario-adopcion input,
+.formulario-adopcion textarea {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #28c2c2;
+}
+
+.copys {
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.formulario-adopcion button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #53af4c;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #f7f7f7;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ddf5f5fe;
+    color: #090909;
+}
+ 
+
+
+.header-link {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.formulario-adopcion button {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.formulario-adopcion button:hover {
+    background-color: #87cf81;
+    transform: scale(1.08);
+}
+
+.formulario-adopcion button:active {
+    background-color: #153a12;
+    transform: scale(1.02);
+}
+
+
+
+
+
+/* la pagina de cofirmacion */
+.contenedor-confirmacion {
+    display: flex;
+    justify-content: center;
+    padding: 60px 30px;
+     display: flex;
+  align-items: center;     
+  margin: 0;
+}
+
+.recuadro-confirmacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 450px;
+    background-color: #dcf4d9;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.icono-check {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+.recuadro-confirmacion h2 {
+    color: #1f627a;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.recuadro-confirmacion p {
+    color: #333333;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+ 
+ 
