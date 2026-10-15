@@ -7,53 +7,47 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="header">
+<header class="header">
     <a href="index.html" class="header-link">
       <img src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg" alt="No carga el logo" class="logo">
       <h1>Petsaving</h1>
     </a>
-    <nav class="header-nav">
+    <nav class="header-nav" aria-label="Menú principal">
       <a href="articulos.html" class="btn-accion">Comprar artículos</a>
       <a href="donar.html" class="btn-accion">Donar</a>
       <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
+      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
     </nav>
-    
-<button type="button" id="boton-daltonismo" class="btn-accion"
-        aria-pressed="false">
-    Activar modo daltónico
-</button>
-
-  </header>
+</header>
 
   <main class="contenedor-donar">
 
-    <section class="caja-donacion">
+    <form class="caja-donacion" action="gracias-donacion.html" method="get">
       <h3>¿Cuánto deseas donar?</h3>
-      <input type="number" name="monto" placeholder="S/ 0.00">
+      <input type="number" id="monto" name="monto" placeholder="S/ 0.00" min="1" step="0.01" aria-label="Monto a donar" required>
 
       <h3><strong>Método de pago</strong></h3>
 
       <div class="metodo-pago">
-        <input type="radio" id="yape" name="metodo-pago">
+        <input type="radio" id="yape" name="metodo-pago" value="yape" required>
         <label for="yape">Yape</label>
         <img src="https://marketingperu.beglobal.biz/wp-content/uploads/2024/06/1-yape-logo-transparencia-2.png" alt="Yape">
       </div>
 
       <div class="metodo-pago">
-        <input type="radio" id="plin" name="metodo-pago">
+        <input type="radio" id="plin" name="metodo-pago" value="plin" required>
         <label for="plin">Plin</label>
         <img src="https://marketingperu.beglobal.biz/wp-content/uploads/2026/07/Logo-de-Plin-PNG.png" alt="Plin">
       </div>
 
       <div class="metodo-pago">
-        <input type="radio" id="tarjeta" name="metodo-pago">
+        <input type="radio" id="tarjeta" name="metodo-pago" value="tarjeta" required>
         <label for="tarjeta">Tarjeta de debito/credito</label>
         <img src="https://cdn-icons-png.flaticon.com/512/5163/5163845.png" alt="Tarjeta">
       </div>
 
-      <button type="button" class="btn-accion">Donar</button>
-    </section>
+      <button type="submit" class="btn-accion">Donar</button>
+    </form>
 
     <section class="caja-derecha-donar">
       <img src="https://offloadmedia.feverup.com/cdmxsecreta.com/wp-content/uploads/2022/07/29045105/albergue-perros-central-de-abasto.jpg" alt="Imagen de donación" class="foto-donacion">

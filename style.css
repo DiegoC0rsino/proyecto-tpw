@@ -400,14 +400,14 @@ footer {
     border-radius: 50%;
 }
 
-/* ===== MODO DALTONICO / ALTO CONTRASTE ===== */
+
 
 body.modo-daltonico {
     background-color: #ffffff;
     color: #111111;
 }
 
-/* Encabezado */
+
 body.modo-daltonico .header {
     background-color: #003b5c;
 }
@@ -416,7 +416,7 @@ body.modo-daltonico .header h1 {
     color: #ffffff;
 }
 
-/* Botones y enlaces */
+
 body.modo-daltonico .btn-accion {
     background-color: #ffcc00;
     color: #111111;
@@ -429,7 +429,7 @@ body.modo-daltonico .btn-accion:hover {
     color: #003b5c;
 }
 
-/* Tarjetas de mascotas y artículos */
+
 body.modo-daltonico .tarjeta-perro,
 body.modo-daltonico .tarjeta-articulo,
 body.modo-daltonico .tarjeta-quienes-somos {
@@ -445,7 +445,7 @@ body.modo-daltonico .info-quienes-somos p {
     color: #ffffff;
 }
 
-/* Formularios */
+
 body.modo-daltonico .formulario-adopcion,
 body.modo-daltonico .caja-donacion,
 body.modo-daltonico .caja-info-uso,
@@ -472,14 +472,14 @@ body.modo-daltonico .caja-donacion input {
     border: 2px solid #003b5c;
 }
 
-/* Botones de formularios */
+
 body.modo-daltonico .formulario-adopcion button {
     background-color: #ffcc00;
     color: #111111;
     border: 2px solid #111111;
 }
 
-/* Pie de página */
+
 body.modo-daltonico footer {
     background-color: #003b5c;
     color: #ffffff;
@@ -489,11 +489,179 @@ body.modo-daltonico footer p {
     color: #ffffff;
 }
 
-/* Indicador visible al navegar con teclado */
 body.modo-daltonico a:focus-visible,
 body.modo-daltonico button:focus-visible,
 body.modo-daltonico input:focus-visible,
 body.modo-daltonico textarea:focus-visible {
     outline: 3px solid #ff8c00;
     outline-offset: 3px;
+}
+
+/*Nuevos cambios de diego para la pantaalla */
+
+.header {
+    gap: 15px 35px;
+}
+
+.header-nav {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.header-nav .btn-accion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-accion {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+
+.formulario-adopcion textarea {
+    flex: 1 1 0;           
+    min-height: 140px;     
+    resize: none;          
+    overflow-y: auto;      
+}
+
+
+
+
+.formulario-adopcion:invalid button[type="submit"],
+.caja-donacion:invalid button[type="submit"],
+.form-compra:invalid button[type="submit"] {
+    opacity: 0.95;
+    filter: grayscale(7);
+    pointer-events: none;  
+}
+
+
+.form-compra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cantidad label {
+    color: #fbf8f8;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.cantidad input {
+    width: 70px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #28c2c2;
+    text-align: center;
+}
+
+
+.recuadro-confirmacion .btn-accion {
+    margin-top: 15px;
+}
+
+
+body.modo-daltonico .cantidad label {
+    color: #ffffff;
+}
+
+body.modo-daltonico .cantidad input {
+    background-color: #ffffff;
+    color: #111111;
+    border: 2px solid #ffcc00;
+}
+
+
+
+
+@media (max-width: 1100px) {
+    .grid-articulos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tarjeta-articulo {
+        aspect-ratio: auto;
+        gap: 12px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    main {
+        padding: 15px;
+    }
+
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .header-nav {
+        margin-left: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .header-nav .btn-accion {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
+
+   
+    .tarjeta-perro {
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .info-perro,
+    .formulario-adopcion,
+    .caja-donacion,
+    .caja-derecha-donar,
+    .foto-quienes-somos,
+    .info-quienes-somos {
+        box-sizing: border-box;
+        flex: 1 1 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+
+    .grid-articulos {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+
+    .contenedor-donar {
+        padding: 15px;
+    }
+
+
+    .tarjeta-quienes-somos {
+        margin: 0;
+        padding: 15px;
+    }
+
+
+    .contenedor-confirmacion {
+        padding: 30px 15px;
+    }
+
+    .recuadro-confirmacion {
+        padding: 25px;
+    }
 }

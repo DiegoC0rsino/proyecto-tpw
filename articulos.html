@@ -8,24 +8,18 @@
 </head>
 <body>
 
-  <header class="header">
+<header class="header">
     <a href="index.html" class="header-link">
       <img src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg" alt="No carga el logo" class="logo">
       <h1>Petsaving</h1>
     </a>
-    <nav class="header-nav">
+    <nav class="header-nav" aria-label="Menú principal">
       <a href="articulos.html" class="btn-accion">Comprar artículos</a>
       <a href="donar.html" class="btn-accion">Donar</a>
       <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
+      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
     </nav>
-    
-<button type="button" id="boton-daltonismo" class="btn-accion"
-        aria-pressed="false">
-    Activar modo daltónico
-</button>
-
-  </header>
-
+</header>
   <main class="grid-articulos">
 
     <article class="tarjeta-articulo">
@@ -35,7 +29,13 @@
         <p class="detalle">Raton de juguete</p>
         <p class="entrega">Disponibilidad en todo lima</p>
       </div>
-      <button class="btn-accion">Comprar </button>
+      <form class="form-compra" action="gracias-compra.html" method="get">
+        <div class="cantidad">
+          <label for="cantidad1">Cantidad:</label>
+          <input type="number" id="cantidad1" name="cantidad" min="1" max="99" value="1" required>
+        </div>
+        <button type="submit" class="btn-accion">Comprar</button>
+      </form>
     </article>
 
     <article class="tarjeta-articulo">
@@ -45,7 +45,13 @@
         <p class="detalle">Pelota para perro</p>
         <p class="entrega">Disponibilidad en todo lima</p>
       </div>
-      <button class="btn-accion">Comprar</button>
+      <form class="form-compra" action="gracias-compra.html" method="get">
+        <div class="cantidad">
+          <label for="cantidad2">Cantidad:</label>
+          <input type="number" id="cantidad2" name="cantidad" min="1" max="99" value="1" required>
+        </div>
+        <button type="submit" class="btn-accion">Comprar</button>
+      </form>
     </article>
 
     <article class="tarjeta-articulo">
@@ -55,7 +61,12 @@
         <p class="detalle">Cuerda para perro</p>
         <p class="entrega">Disponibilidad en Villa María</p>
       </div>
-      <button class="btn-accion">Comprar</button>
+      <form class="form-compra" action="gracias-compra.html" method="get">
+        <div class="cantidad">
+          <label for="cantidad3">Cantidad:</label>
+          <input type="number" id="cantidad3" name="cantidad" min="1" max="99" value="1" required>
+        </div>
+        <button type="submit" class="btn-accion">Comprar</button>
     </article>
 
     <article class="tarjeta-articulo">
@@ -65,7 +76,12 @@
         <p class="detalle">Casa para gatos</p>
         <p class="entrega">Disponibilidad en todo lima</p>
       </div>
-      <button class="btn-accion">Comprar</button>
+      <form class="form-compra" action="gracias-compra.html" method="get">
+        <div class="cantidad">
+          <label for="cantidad4">Cantidad:</label>
+          <input type="number" id="cantidad4" name="cantidad" min="1" max="99" value="1" required>
+        </div>
+        <button type="submit" class="btn-accion">Comprar</button>
     </article>
 
     <article class="tarjeta-articulo">
@@ -75,7 +91,12 @@
         <p class="detalle">Plato para perro</p>
         <p class="entrega">Disponibilidad en todo Villa María</p>
       </div>
-      <button class="btn-accion">Comprar</button>
+      <form class="form-compra" action="gracias-compra.html" method="get">
+        <div class="cantidad">
+          <label for="cantidad5">Cantidad:</label>
+          <input type="number" id="cantidad5" name="cantidad" min="1" max="99" value="1" required>
+        </div>
+        <button type="submit" class="btn-accion">Comprar</button>
     </article>
 
     <article class="tarjeta-articulo">
@@ -85,7 +106,13 @@
         <p class="detalle">Cuerda para perro</p>
         <p class="entrega">Disponibilidad en Villa María</p>
       </div>
-      <button class="btn-accion">Comprar</button>
+      <form class="form-compra" action="gracias-compra.html" method="get">
+        <div class="cantidad">
+          <label for="cantidad6">Cantidad:</label>
+          <input type="number" id="cantidad6" name="cantidad" min="1" max="99" value="1" required>
+        </div>
+        <button type="submit" class="btn-accion">Comprar</button>
+      </form>
     </article>
 
   </main>
