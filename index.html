@@ -18,6 +18,16 @@
       <a href="donar.html" class="btn-accion">Donar</a>
       <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
     </nav>
+    
+<button type="button" id="boton-daltonismo" class="btn-accion"
+        aria-pressed="false">
+    Activar modo daltónico
+</button>
+
+    <button type="button" id="boton-daltonismo" class="btn-accion"
+        aria-pressed="false">
+  Activar modo daltónico
+</button>
 </header>
   <main>
 
@@ -188,6 +198,26 @@
       </a>
     </div>
 </footer>
+<script src="accesibilidad.js"></script>
+</body>
+</html>
+
+
+</footer>
+
+<script>
+  const botonDaltonismo = document.getElementById("boton-daltonismo");
+
+  botonDaltonismo.addEventListener("click", function () {
+    const modoActivo = document.body.classList.toggle("modo-daltonico");
+
+    botonDaltonismo.textContent = modoActivo
+      ? "Desactivar modo daltónico"
+      : "Activar modo daltónico";
+
+    botonDaltonismo.setAttribute("aria-pressed", modoActivo);
+  });
+</script>
 
 </body>
 </html>
