@@ -598,19 +598,25 @@ body.modo-daltonico .cantidad input {
 /* ==========================================
    ESTILOS PARA MODO OSCURO
    ========================================== */
-body.modo-oscuro {
+body.modo-oscuro,
+body.modo-oscuro header,
+body.modo-oscuro nav,
+body.modo-oscuro main,
+body.modo-oscuro section,
+body.modo-oscuro div,
+body.modo-oscuro article,
+body.modo-oscuro footer {
     background-color: #121212 !important;
     color: #ffffff !important;
 }
 
-body.modo-oscuro header,
-body.modo-oscuro footer,
-body.modo-oscuro nav,
-body.modo-oscuro div,
-body.modo-oscuro section,
-body.modo-oscuro article,
-body.modo-oscuro main {
-    background-color: #1e1e1e !important;
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro h4,
+body.modo-oscuro p,
+body.modo-oscuro span,
+body.modo-oscuro li {
     color: #ffffff !important;
 }
 
@@ -622,29 +628,4 @@ body.modo-oscuro button {
     background-color: #333333 !important;
     color: #ffffff !important;
     border: 1px solid #555555 !important;
-}
-/* Modo Oscuro para toda la interfaz */
-body.dark-mode,
-body.dark-mode header,
-body.dark-mode nav,
-body.dark-mode main,
-body.dark-mode section,
-body.dark-mode div,
-body.dark-mode article,
-body.dark-mode card,
-body.dark-mode footer {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-}
-
-/* Forzar color claro en textos y títulos */
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode p,
-body.dark-mode span,
-body.dark-mode a,
-body.dark-mode li {
-    color: #ffffff !important;
 }
