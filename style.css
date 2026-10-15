@@ -596,36 +596,58 @@ body.modo-daltonico .cantidad input {
     }
 }
 /* ==========================================
-   ESTILOS PARA MODO OSCURO
+   MODO OSCURO (ESCALA DE NEGROS Y CONTRASTE)
    ========================================== */
-body.modo-oscuro,
-body.modo-oscuro header,
-body.modo-oscuro nav,
-body.modo-oscuro main,
-body.modo-oscuro section,
-body.modo-oscuro div,
-body.modo-oscuro article,
-body.modo-oscuro footer {
+
+/* Fondo general de la página (Negro profundo) */
+body.modo-oscuro {
     background-color: #121212 !important;
+    color: #f1f1f1 !important;
+}
+
+/* Header y Footer en gris oscuro ligeramente más claro para contrastar */
+body.modo-oscuro header,
+body.modo-oscuro footer {
+    background-color: #2d2d2d !important;
     color: #ffffff !important;
 }
 
+/* Secciones, contenedores y formularios en gris medio */
+body.modo-oscuro main,
+body.modo-oscuro section,
+body.modo-oscuro div.card,
+body.modo-oscuro .tarjeta,
+body.modo-oscuro form,
+body.modo-oscuro [class*="form"] {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+/* Forzar que TODOS los textos, títulos y etiquetas sean blancos */
 body.modo-oscuro h1,
 body.modo-oscuro h2,
 body.modo-oscuro h3,
 body.modo-oscuro h4,
 body.modo-oscuro p,
+body.modo-oscuro label,
 body.modo-oscuro span,
-body.modo-oscuro li {
+body.modo-oscuro li,
+body.modo-oscuro legend {
     color: #ffffff !important;
 }
 
+/* Campos de texto de formularios (Inputs) legibles */
+body.modo-oscuro input[type="text"],
+body.modo-oscuro input[type="email"],
+body.modo-oscuro input[type="number"],
+body.modo-oscuro textarea,
+body.modo-oscuro select {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+}
+
+/* Enlaces */
 body.modo-oscuro a {
     color: #90caf9 !important;
-}
-
-body.modo-oscuro button {
-    background-color: #333333 !important;
-    color: #ffffff !important;
-    border: 1px solid #555555 !important;
 }
