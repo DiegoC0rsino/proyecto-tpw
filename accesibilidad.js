@@ -35,9 +35,9 @@ if (botonDaltonismo) {
         actualizarBoton();
     });
 }
-// ==========================================
+
 // MODO OSCURO
-// ==========================================
+
 const botonModoOscuro = document.getElementById("boton-modo-oscuro");
 const modoOscuroGuardado = localStorage.getItem("modo-oscuro") === "activo";
 

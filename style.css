@@ -595,9 +595,7 @@ body.modo-daltonico .cantidad input {
         padding: 25px;
     }
 }
-/* ==========================================
-   MODO OSCURO - ESTILOS DEFINITIVOS
-   ========================================== */
+/* modo oscuro v4 */
 
 /* Fondo general */
 body.modo-oscuro {
@@ -624,7 +622,7 @@ body.modo-oscuro [class*="contenedor"] {
     color: #ffffff !important;
 }
 
-/* Forzar letras blancas en todos los textos del recuadro */
+/*  letras blancas en todos los textos del recuadro */
 body.modo-oscuro h1,
 body.modo-oscuro h2,
 body.modo-oscuro h3,
@@ -636,7 +634,7 @@ body.modo-oscuro li {
     color: #ffffff !important;
 }
 
-/* Unificar los enlaces del menú con los botones del header */
+/* Unificar los enlaces del menu  */
 body.modo-oscuro header nav a,
 body.modo-oscuro header a {
     background-color: #388e3c !important;
