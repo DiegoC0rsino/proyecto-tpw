@@ -399,3 +399,101 @@ footer {
     height: 30px;
     border-radius: 50%;
 }
+
+/* ===== MODO DALTONICO / ALTO CONTRASTE ===== */
+
+body.modo-daltonico {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* Encabezado */
+body.modo-daltonico .header {
+    background-color: #003b5c;
+}
+
+body.modo-daltonico .header h1 {
+    color: #ffffff;
+}
+
+/* Botones y enlaces */
+body.modo-daltonico .btn-accion {
+    background-color: #ffcc00;
+    color: #111111;
+    border: 2px solid #111111;
+    font-weight: bold;
+}
+
+body.modo-daltonico .btn-accion:hover {
+    background-color: #ffffff;
+    color: #003b5c;
+}
+
+/* Tarjetas de mascotas y artículos */
+body.modo-daltonico .tarjeta-perro,
+body.modo-daltonico .tarjeta-articulo,
+body.modo-daltonico .tarjeta-quienes-somos {
+    background-color: #003b5c;
+    border: 3px solid #ffcc00;
+}
+
+body.modo-daltonico .descripcion h1,
+body.modo-daltonico .descripcion p,
+body.modo-daltonico .info-articulo p,
+body.modo-daltonico .info-quienes-somos h2,
+body.modo-daltonico .info-quienes-somos p {
+    color: #ffffff;
+}
+
+/* Formularios */
+body.modo-daltonico .formulario-adopcion,
+body.modo-daltonico .caja-donacion,
+body.modo-daltonico .caja-info-uso,
+body.modo-daltonico .recuadro-confirmacion {
+    background-color: #ffffff;
+    color: #111111;
+    border: 2px solid #003b5c;
+}
+
+body.modo-daltonico .formulario-adopcion h3,
+body.modo-daltonico .caja-donacion h3,
+body.modo-daltonico .formulario-adopcion label,
+body.modo-daltonico .metodo-pago label,
+body.modo-daltonico .recuadro-confirmacion h2,
+body.modo-daltonico .recuadro-confirmacion p {
+    color: #111111;
+}
+
+body.modo-daltonico .formulario-adopcion input,
+body.modo-daltonico .formulario-adopcion textarea,
+body.modo-daltonico .caja-donacion input {
+    background-color: #ffffff;
+    color: #111111;
+    border: 2px solid #003b5c;
+}
+
+/* Botones de formularios */
+body.modo-daltonico .formulario-adopcion button {
+    background-color: #ffcc00;
+    color: #111111;
+    border: 2px solid #111111;
+}
+
+/* Pie de página */
+body.modo-daltonico footer {
+    background-color: #003b5c;
+    color: #ffffff;
+}
+
+body.modo-daltonico footer p {
+    color: #ffffff;
+}
+
+/* Indicador visible al navegar con teclado */
+body.modo-daltonico a:focus-visible,
+body.modo-daltonico button:focus-visible,
+body.modo-daltonico input:focus-visible,
+body.modo-daltonico textarea:focus-visible {
+    outline: 3px solid #ff8c00;
+    outline-offset: 3px;
+}
