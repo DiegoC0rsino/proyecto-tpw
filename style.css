@@ -1,34 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; 
     margin: 0;
     padding: 0;
     background-color: #ade3cc;
-
 }
 
-
-.header {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    padding: 15px 30px;
-    background-color: #42b585;
-}
-
-.logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-}
-
-.header h1 {
-
-    color: #f4f7f8;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-/* contenedor principalk*/
 main {
     display: flex;
     flex-direction: column;
@@ -36,14 +12,66 @@ main {
     padding: 30px;
 }
 
-/* tarjeta de laa mascota */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 35px;
+    padding: 15px 30px;
+    background-color: #42b585;
+}
+
+.header-link {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header h1 {
+    color: #f4f7f8;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-accion,
+.formulario-adopcion button {
+    display: inline-block;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: #53af4c;
+    color: #f7f7f7;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.5s ease-in-out, transform 0.3s;
+}
+
+.btn-accion:hover,
+.formulario-adopcion button:hover {
+    background-color: #87cf81;
+    transform: translateY(-5px);
+}
+
 .tarjeta-perro {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: #61977b;
     border: 1px solid #ffde96;
 }
@@ -53,27 +81,19 @@ main {
     flex-direction: column;
     flex: 1;
     min-width: 250px;
-
 }
 
 .foto-perro {
     width: 100%;
     max-width: 300px;
-    border-radius: 30px;
+    border-radius: 20px;
     margin-bottom: 10px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
-.descripcion h1 {
-    color: #f6faf4;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
+.descripcion h2,
 .descripcion p {
-    color: #fbf8f8;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #f6faf4;
 }
-
 
 .formulario-adopcion {
     display: flex;
@@ -81,17 +101,13 @@ main {
     flex: 1;
     min-width: 250px;
     padding: 15px;
-    border-radius: 30px;
-    /* color de fondo */
+    border-radius: 20px;
     background-color: #dcf4d9;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 6px gray;
 }
 
 .formulario-adopcion h3 {
-
     color: #050505;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .formulario-adopcion label {
@@ -107,143 +123,13 @@ main {
     border: 1px solid #28c2c2;
 }
 
-.copys {
-    font-family: 'Times New Roman', Times, serif;
-
-}
-
 .formulario-adopcion button {
     margin-top: 15px;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #53af4c;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #f7f7f7;
-}
-
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #ddf5f5fe;
-    color: #090909;
-}
- 
-
-
-.header-link {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    text-decoration: none;
-    color: inherit;
-}
-
-
-.formulario-adopcion button {
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.formulario-adopcion button:hover {
-    background-color: #87cf81;
-    transform: scale(1.08);
-}
-
-.formulario-adopcion button:active {
-    background-color: #153a12;
-    transform: scale(1.02);
-}
-
-
-
-
-
-.contenedor-confirmacion {
-    display: flex;
-    justify-content: center;
-    padding: 60px 30px;
-     display: flex;
-  align-items: center;     
-  margin: 0;
-}
-
-.recuadro-confirmacion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
-    border-radius: 30px;
-    max-width: 450px;
-    background-color: #dcf4d9;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-}
-
-.icono-check {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
-    border-radius: 50%;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-
-}
-
-.recuadro-confirmacion h2 {
-    color: #1f627a;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.recuadro-confirmacion p {
-    color: #333333;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
- 
-
-.header {
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.header-nav {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-
-
-
-
-.btn-accion {
-    display: inline-block;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #53af4c;
-    color: #f7f7f7;
-}
-
-.btn-accion:hover {
-    background-color: #87cf81;
-    transform: scale(1.08);
-}
-
-.btn-accion:active {
-    background-color: #153a12;
-    transform: scale(1.02);
 }
 
 .grid-articulos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding: 30px;
+    flex-direction: row; 
+    flex-wrap: wrap;
 }
 
 .tarjeta-articulo {
@@ -252,43 +138,36 @@ footer {
     align-items: center;
     text-align: center;
     justify-content: space-between;
+    width: 28%;
     padding: 20px;
-    border-radius: 30px;
-    aspect-ratio: 1 / 1;
+    border-radius: 20px;
     background-color: #61977b;
     border: 1px solid #ffde96;
 }
 
 .foto-articulo {
-    width: 100%;
-    max-width: 160px;
+    width: 160px;
     height: 160px;
-    object-fit: cover;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-bottom: 10px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .info-articulo p {
     margin: 4px 0;
     color: #fbf8f8;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .info-articulo .precio {
     font-size: 1.2em;
     font-weight: bold;
-    color: #f6faf4;
 }
 
 .contenedor-donar {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 30px;
 }
+
 .caja-donacion {
     display: flex;
     flex-direction: column;
@@ -296,14 +175,13 @@ footer {
     min-width: 280px;
     max-width: 400px;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: #eef4d9;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 6px gray;
 }
 
 .caja-donacion h3 {
     color: #050505;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .caja-donacion input[type="number"] {
@@ -327,7 +205,6 @@ footer {
 .metodo-pago img {
     width: 40px;
     height: 40px;
-    object-fit: contain;
 }
 
 .caja-derecha-donar {
@@ -340,16 +217,15 @@ footer {
 
 .foto-donacion {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-bottom: 15px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .caja-info-uso {
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: #eef4d9;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 6px gray;
 }
 
 .tarjeta-quienes-somos {
@@ -357,8 +233,7 @@ footer {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    margin: 30px;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: #61977b;
     border: 1px solid #ffde96;
 }
@@ -367,23 +242,78 @@ footer {
     flex: 1;
     min-width: 280px;
     max-width: 450px;
-    width: 100%;
-    border-radius: 30px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
 }
 
 .info-quienes-somos {
     flex: 1;
     min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .info-quienes-somos h2,
 .info-quienes-somos p {
     color: #f6faf4;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* ===== CONFIRMACIÓN ===== */
+.contenedor-confirmacion {
+    align-items: center;
+    padding: 60px 30px;
+}
+
+.recuadro-confirmacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #dcf4d9;
+    box-shadow: 3px 3px 6px gray;
+}
+
+.icono-check {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    animation: aparecer 1s ease-in-out forwards;
+    animation-delay: 0.25s;
+    opacity: 0;
+}
+@keyframes aparecer {
+    from { 
+      opacity: 0;
+      transform: translateY(-50px); }
+    to   { 
+      opacity: 1;
+      transform: translateY(0); }
+    }
+
+.recuadro-confirmacion h2 {
+    color: #1f627a;
+    animation: aparecer 1s ease-in-out forwards;
+    animation-delay: 0.25s;
+    opacity: 0;
+}
+
+.recuadro-confirmacion p {
+    color: #333333;
+    animation: aparecer 1s ease-in-out forwards;
+    animation-delay: 0.25s;
+    opacity: 0;
+}
+
+/* ===== PIE DE PÁGINA ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ddf5f5;
+    color: #090909;
+}
+
+.copys {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .redes-sociales {
@@ -391,7 +321,6 @@ footer {
     display: flex;
     justify-content: center;
     gap: 15px;
-    
 }
 
 .icono-red {
@@ -400,14 +329,14 @@ footer {
     border-radius: 50%;
 }
 
-
+/* ===== MODO DALTONICO / ALTO CONTRASTE ===== */
 
 body.modo-daltonico {
     background-color: #ffffff;
     color: #111111;
 }
 
-
+/* Encabezado */
 body.modo-daltonico .header {
     background-color: #003b5c;
 }
@@ -416,7 +345,7 @@ body.modo-daltonico .header h1 {
     color: #ffffff;
 }
 
-
+/* Botones y enlaces */
 body.modo-daltonico .btn-accion {
     background-color: #ffcc00;
     color: #111111;
@@ -429,7 +358,7 @@ body.modo-daltonico .btn-accion:hover {
     color: #003b5c;
 }
 
-
+/* Tarjetas de mascotas y artículos */
 body.modo-daltonico .tarjeta-perro,
 body.modo-daltonico .tarjeta-articulo,
 body.modo-daltonico .tarjeta-quienes-somos {
@@ -437,7 +366,7 @@ body.modo-daltonico .tarjeta-quienes-somos {
     border: 3px solid #ffcc00;
 }
 
-body.modo-daltonico .descripcion h1,
+body.modo-daltonico .descripcion h2,
 body.modo-daltonico .descripcion p,
 body.modo-daltonico .info-articulo p,
 body.modo-daltonico .info-quienes-somos h2,
@@ -445,7 +374,7 @@ body.modo-daltonico .info-quienes-somos p {
     color: #ffffff;
 }
 
-
+/* Formularios */
 body.modo-daltonico .formulario-adopcion,
 body.modo-daltonico .caja-donacion,
 body.modo-daltonico .caja-info-uso,
@@ -472,14 +401,14 @@ body.modo-daltonico .caja-donacion input {
     border: 2px solid #003b5c;
 }
 
-
+/* Botones de formularios */
 body.modo-daltonico .formulario-adopcion button {
     background-color: #ffcc00;
     color: #111111;
     border: 2px solid #111111;
 }
 
-
+/* Pie de página */
 body.modo-daltonico footer {
     background-color: #003b5c;
     color: #ffffff;
@@ -489,6 +418,7 @@ body.modo-daltonico footer p {
     color: #ffffff;
 }
 
+/* Indicador visible al navegar con teclado */
 body.modo-daltonico a:focus-visible,
 body.modo-daltonico button:focus-visible,
 body.modo-daltonico input:focus-visible,
