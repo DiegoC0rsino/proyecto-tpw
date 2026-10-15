@@ -35,3 +35,26 @@ if (botonDaltonismo) {
         actualizarBoton();
     });
 }
+// ==========================================
+// MODO OSCURO
+// ==========================================
+const botonModoOscuro = document.getElementById("boton-modo-oscuro");
+const modoOscuroGuardado = localStorage.getItem("modo-oscuro") === "activo";
+
+document.body.classList.toggle("modo-oscuro", modoOscuroGuardado);
+
+function actualizarBotonOscuro() {
+    if (!botonModoOscuro) return;
+    const activo = document.body.classList.contains("modo-oscuro");
+    botonModoOscuro.textContent = activo ? "Desactivar modo oscuro" : "Activar modo oscuro";
+    botonModoOscuro.setAttribute("aria-pressed", activo);
+}
+
+if (botonModoOscuro) {
+    botonModoOscuro.addEventListener("click", () => {
+        const activo = document.body.classList.toggle("modo-oscuro");
+        localStorage.setItem("modo-oscuro", activo ? "activo" : "inactivo");
+        actualizarBotonOscuro();
+    });
+}
+actualizarBotonOscuro();
