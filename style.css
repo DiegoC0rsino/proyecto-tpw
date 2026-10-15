@@ -596,58 +596,50 @@ body.modo-daltonico .cantidad input {
     }
 }
 /* ==========================================
-   MODO OSCURO (ESCALA DE NEGROS Y CONTRASTE)
+   MODO OSCURO - ESTILOS DEFINITIVOS
    ========================================== */
 
-/* Fondo general de la página (Negro profundo) */
+/* Fondo general */
 body.modo-oscuro {
     background-color: #121212 !important;
-    color: #f1f1f1 !important;
-}
-
-/* Header y Footer en gris oscuro ligeramente más claro para contrastar */
-body.modo-oscuro header,
-body.modo-oscuro footer {
-    background-color: #2d2d2d !important;
     color: #ffffff !important;
 }
 
-/* Secciones, contenedores y formularios en gris medio */
+/* Header y Footer */
+body.modo-oscuro header,
+body.modo-oscuro footer {
+    background-color: #2d2d2d !important;
+}
+
+/* Todas las tarjetas, contenedores y recuadros en gris oscuro */
 body.modo-oscuro main,
 body.modo-oscuro section,
-body.modo-oscuro div.card,
-body.modo-oscuro .tarjeta,
+body.modo-oscuro div,
+body.modo-oscuro article,
 body.modo-oscuro form,
-body.modo-oscuro [class*="form"] {
+body.modo-oscuro [class*="card"],
+body.modo-oscuro [class*="box"],
+body.modo-oscuro [class*="contenedor"] {
     background-color: #1e1e1e !important;
     color: #ffffff !important;
 }
 
-/* Forzar que TODOS los textos, títulos y etiquetas sean blancos */
+/* Forzar letras blancas en todos los textos del recuadro */
 body.modo-oscuro h1,
 body.modo-oscuro h2,
 body.modo-oscuro h3,
 body.modo-oscuro h4,
 body.modo-oscuro p,
-body.modo-oscuro label,
 body.modo-oscuro span,
-body.modo-oscuro li,
-body.modo-oscuro legend {
+body.modo-oscuro label,
+body.modo-oscuro li {
     color: #ffffff !important;
 }
 
-/* Campos de texto de formularios (Inputs) legibles */
-body.modo-oscuro input[type="text"],
-body.modo-oscuro input[type="email"],
-body.modo-oscuro input[type="number"],
-body.modo-oscuro textarea,
-body.modo-oscuro select {
-    background-color: #2a2a2a !important;
+/* Unificar los enlaces del menú con los botones del header */
+body.modo-oscuro header nav a,
+body.modo-oscuro header a {
+    background-color: #388e3c !important;
     color: #ffffff !important;
-    border: 1px solid #444444 !important;
-}
-
-/* Enlaces */
-body.modo-oscuro a {
-    color: #90caf9 !important;
+    border-radius: 8px !important;
 }
