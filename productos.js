@@ -155,20 +155,54 @@ if (contenedorProducto) {
       campo.value = Math.floor(Number(campo.value));
     });
 
-      // botón grande: muestra el aviso del navegador
+    // Botón para agregar productos al carrito
     const boton = crear("button", "btn-accion btn-agregar", "Agregar al carrito");
     boton.type = "button";
+
     boton.addEventListener("click", function () {
-      alert("Se ha añadido " + campo.value + " x " + p.nombre + " al carrito");
+        const cantidadIngresada = Number(campo.value);
+
+        if (!Number.isInteger(cantidadIngresada) || cantidadIngresada < 1) {
+            alert("Ingresa una cantidad válida");
+            return;
+        }
+
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const productoExistente = carrito.find(item => item.id === p.id);
+
+        if (productoExistente) {
+            if (productoExistente.cantidad + cantidadIngresada > p.stock) {
+                alert("No hay suficiente stock disponible");
+                return;
+            }
+
+            productoExistente.cantidad += cantidadIngresada;
+        } else {
+            if (cantidadIngresada > p.stock) {
+                alert("No hay suficiente stock disponible");
+                return;
+            }
+
+            carrito.push({
+                id: p.id,
+                nombre: p.nombre,
+                precio: p.precio,
+                cantidad: cantidadIngresada,
+                stock: p.stock
+            });
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("Producto agregado correctamente al carrito");
     });
 
     info.append(
-      crear("h2", null, p.nombre),
-      crear("p", "precio", formatearPrecio(p.precio)),
-      crear("p", null, p.disponibilidad),
-      crear("p", null, "Stock: " + p.stock + unidades),
-      cantidad,
-      boton
+        crear("h2", null, p.nombre),
+        crear("p", "precio", formatearPrecio(p.precio)),
+        crear("p", null, p.disponibilidad),
+        crear("p", null, "Stock: " + p.stock + unidades),
+        cantidad,
+        boton
     );
 
     tarjeta.append(lado, info);
