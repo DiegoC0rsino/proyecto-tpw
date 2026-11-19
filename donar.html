@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Petsaving - Donar</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="header">
+  <header class="header">
     <a href="index.html" class="header-link">
-      <img src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg" alt="No carga el logo" class="logo">
+      <img
+        src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg"
+        alt="No carga el logo" class="logo">
       <h1>Petsaving</h1>
     </a>
     <nav class="header-nav" aria-label="Menú principal">
       <a href="articulos.html" class="btn-accion">Comprar artículos</a>
       <a href="donar.html" class="btn-accion">Donar</a>
       <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
-      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
+      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo
+        daltónico</button>
       <button type="button" id="boton-modo-oscuro" class="btn-accion" aria-pressed="false">Activar modo oscuro</button>
     </nav>
-</header>
+  </header>
 
   <main class="contenedor-donar">
-
-    <form class="caja-donacion" action="gracias-donacion.html" method="get">
+// donación rapida
+    <form class="caja-donacion" action="gracias-donacion.html" method="get" onsubmit="return confirmarDonacion()">
       <h3>¿Cuánto deseas donar?</h3>
-      <input type="number" id="monto" name="monto" placeholder="S/ 0.00" min="1" step="0.01" aria-label="Monto a donar" required>
+      <div class="montos-rapidos">
+        <button type="button" class="btn-accion" onclick="elegirMonto(10)">S/ 10</button>
+        <button type="button" class="btn-accion" onclick="elegirMonto(20)">S/ 20</button>
+        <button type="button" class="btn-accion" onclick="elegirMonto(50)">S/ 50</button>
+      </div>
+      <input type="number" id="monto" name="monto" placeholder="S/ 0.00" min="1" step="0.01" aria-label="Monto a donar"
+        required>
 
       <h3><strong>Método de pago</strong></h3>
 
       <div class="metodo-pago">
         <input type="radio" id="yape" name="metodo-pago" value="yape" required>
         <label for="yape">Yape</label>
-        <img src="https://marketingperu.beglobal.biz/wp-content/uploads/2024/06/1-yape-logo-transparencia-2.png" alt="Yape">
+        <img src="https://marketingperu.beglobal.biz/wp-content/uploads/2024/06/1-yape-logo-transparencia-2.png"
+          alt="Yape">
       </div>
 
       <div class="metodo-pago">
@@ -51,29 +63,37 @@
     </form>
 
     <section class="caja-derecha-donar">
-      <img src="https://offloadmedia.feverup.com/cdmxsecreta.com/wp-content/uploads/2022/07/29045105/albergue-perros-central-de-abasto.jpg" alt="Imagen de donación" class="foto-donacion">
+      <img
+        src="https://offloadmedia.feverup.com/cdmxsecreta.com/wp-content/uploads/2022/07/29045105/albergue-perros-central-de-abasto.jpg"
+        alt="Imagen de donación" class="foto-donacion">
       <div class="caja-info-uso">
         <h3>¿En qué se usará tu dinero?</h3>
-        <p>Su dinero sera utilizado para la compra de alimentos para los animaes de nuestro albergue. En la mejora des nuestros equipos de veterinaria y en la comprra de los medicamentos pertinentes </p>
+        <p>Su dinero sera utilizado para la compra de alimentos para los animaes de nuestro albergue. En la mejora des
+          nuestros equipos de veterinaria y en la comprra de los medicamentos pertinentes </p>
       </div>
     </section>
 
   </main>
 
-<footer>
+  <footer>
     <p class="copys">&copy; <strong>2026 PETSAVING</strong></p>
     <div class="redes-sociales">
       <a href="https://w.app/ymnofl" target="_blank">
-        <img src="https://w7.pngwing.com/pngs/661/360/png-transparent-whatsapp-icon-logo-whatsapp-logo-text-instant-messaging-whatsapp-logo-png-thumbnail.png" alt="WhatsApp" class="icono-red">
+        <img
+          src="https://w7.pngwing.com/pngs/661/360/png-transparent-whatsapp-icon-logo-whatsapp-logo-text-instant-messaging-whatsapp-logo-png-thumbnail.png"
+          alt="WhatsApp" class="icono-red">
       </a>
       <a href="https://www.facebook.com/" target="_blank">
-        <img src="https://cdn.pixabay.com/photo/2021/12/10/16/37/facebook-6860914_1280.png" alt="Facebook" class="icono-red">
+        <img src="https://cdn.pixabay.com/photo/2021/12/10/16/37/facebook-6860914_1280.png" alt="Facebook"
+          class="icono-red">
       </a>
       <a href="https://www.instagram.com/" target="_blank">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgV9q523k1LLLFuRnYSXq_1jv1Wl3xVPT9if-sh0lgA&s" alt="Instagram" class="icono-red">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgV9q523k1LLLFuRnYSXq_1jv1Wl3xVPT9if-sh0lgA&s"
+          alt="Instagram" class="icono-red">
       </a>
     </div>
-</footer>
-<script src="accesibilidad.js"></script>
+  </footer>
+  <script src="accesibilidad.js"></script>
 </body>
+
 </html>
