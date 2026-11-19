@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi carrito - Petsaving</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Petsaving</h1>
+
+        <nav class="header-nav con-carrito">
+            <a href="index.html" class="btn-accion">Inicio</a>
+            <a href="articulos.html" class="btn-accion">Seguir comprando</a>
+            <button type="button" id="modo-daltonico" class="btn-accion">
+                Modo daltónico
+            </button>
+            <button type="button" id="modo-oscuro" class="btn-accion">
+                Modo oscuro
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Mi carrito de compras</h2>
+
+        <section id="lista-carrito">
+            <!-- Los productos aparecerán aquí -->
+        </section>
+
+        <section class="resumen-carrito">
+            <h3>Resumen de compra</h3>
+            <p>Subtotal: S/ <span id="subtotal-carrito">0.00</span></p>
+            <p><strong>Total: S/ <span id="total-carrito">0.00</span></strong></p>
+
+            <button type="button" id="vaciar-carrito" class="btn-accion">
+                Vaciar carrito
+            </button>
+
+            <button type="button" id="finalizar-compra" class="btn-accion">
+                Finalizar compra
+            </button>
+        </section>
+    </main>
+
+    <script src="carrito.js"></script>
+    <script src="accesibilidad.js"></script>
+</body>
+</html>
