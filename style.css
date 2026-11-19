@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ade3cc;
@@ -128,7 +128,7 @@ main {
 }
 
 .grid-articulos {
-    flex-direction: row; 
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
@@ -281,14 +281,18 @@ main {
     animation-delay: 0.25s;
     opacity: 0;
 }
+
 @keyframes aparecer {
-    from { 
-      opacity: 0;
-      transform: translateY(-50px); }
-    to   { 
-      opacity: 1;
-      transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
     }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .recuadro-confirmacion h2 {
     color: #1f627a;
@@ -451,10 +455,10 @@ body.modo-daltonico textarea:focus-visible {
 
 
 .formulario-adopcion textarea {
-    flex: 1 1 0;           
-    min-height: 140px;     
-    resize: none;          
-    overflow-y: auto;      
+    flex: 1 1 0;
+    min-height: 140px;
+    resize: none;
+    overflow-y: auto;
 }
 
 
@@ -465,7 +469,7 @@ body.modo-daltonico textarea:focus-visible {
 .form-compra:invalid button[type="submit"] {
     opacity: 0.95;
     filter: grayscale(7);
-    pointer-events: none;  
+    pointer-events: none;
 }
 
 
@@ -551,7 +555,7 @@ body.modo-daltonico .cantidad input {
         font-size: 0.9rem;
     }
 
-   
+
     .tarjeta-perro {
         padding: 15px;
         border-radius: 25px;
@@ -595,6 +599,7 @@ body.modo-daltonico .cantidad input {
         padding: 25px;
     }
 }
+
 /* modo oscuro v4 */
 
 /* Fondo general */
@@ -641,6 +646,7 @@ body.modo-oscuro header a {
     color: #ffffff !important;
     border-radius: 8px !important;
 }
+
 /* ==========================================================
    INDEX: BANNER + CUADRÍCULA DE ANIMALES (pegar al final de style.css)
    ========================================================== */
@@ -651,7 +657,8 @@ body.modo-oscuro header a {
     border-radius: 20px;
     box-shadow: 3px 3px 6px gray;
     overflow: hidden;
-    aspect-ratio: 4 / 1;      /* más ancho que alto. Imagen recomendada: 1600 x 400 px */
+    aspect-ratio: 4 / 1;
+    /* más ancho que alto. Imagen recomendada: 1600 x 400 px */
 }
 
 .imagen-banner {
@@ -665,7 +672,8 @@ body.modo-oscuro header a {
 .grid-animales {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;      /* todas las filas con la misma altura */
+    grid-auto-rows: 1fr;
+    /* todas las filas con la misma altura */
     gap: 25px;
 }
 
@@ -752,7 +760,8 @@ body.modo-daltonico .banner-aviso {
 
 .tarjeta-animal:hover,
 .tarjeta-animal:focus-within {
-    filter: brightness(0.88);   /* más bajo = más oscuro (1 = sin cambio) */
+    filter: brightness(0.88);
+    /* más bajo = más oscuro (1 = sin cambio) */
 }
 
 /* ==========================================================
@@ -761,7 +770,8 @@ body.modo-daltonico .banner-aviso {
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;      /* todos los recuadros del mismo tamaño */
+    grid-auto-rows: 1fr;
+    /* todos los recuadros del mismo tamaño */
     gap: 25px;
 }
 
@@ -946,6 +956,7 @@ body.modo-oscuro .tarjeta-producto:focus-within {
         padding: 20px;
     }
 }
+
 /* ==========================================================
    FONDO DEGRADADO DEL <main> (no se aplica en modo daltónico ni oscuro)
    ========================================================== */
@@ -1015,11 +1026,61 @@ body.modo-oscuro main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: none;                 /* sin fondo */
+    background: none;
+    /* sin fondo */
     font-family: 'Pacifico', 'Brush Script MT', 'Segoe Script', cursive;
     font-weight: 400;
     font-size: clamp(1.3rem, 4.2vw, 3.4rem);
     line-height: 1.3;
-    color: #ffffff;                   /* color de la frase: cambia aquí */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.65);   /* sombra para que se lea sobre la imagen */
+    color: #ffffff;
+    /* color de la frase: cambia aquí */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.65);
+    /* sombra para que se lea sobre la imagen */
+}
+
+/* --- MENÚ RESPONSIVO --- */
+.header {
+    position: relative;
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 34px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+}
+
+#nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: #214e38;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.25);
+}
+
+#nav-links.open {
+    transform: translateX(0);
 }
