@@ -58,3 +58,29 @@ if (botonModoOscuro) {
     });
 }
 actualizarBotonOscuro();
+
+// aviso donacion
+
+function elegirMonto(valor) {
+    document.getElementById("monto").value = valor;
+}
+
+function confirmarDonacion() {
+    const monto = document.getElementById("monto").value;
+    return confirm("¿Deseas donar S/ " + monto + "?");
+}
+// preguntas frecuentes
+function mostrarRespuesta(id) {
+    const respuesta = document.getElementById(id);
+    const estabaOculta = respuesta.hidden;
+
+    // oculta las 4 respuestas
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById("resp" + i).hidden = true;
+    }
+
+    // si la que presionaste estaba oculta, la muestra
+    if (estabaOculta) {
+        respuesta.hidden = false;
+    }
+}

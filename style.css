@@ -1032,6 +1032,45 @@ body.modo-oscuro main {
     font-weight: 400;
     font-size: clamp(1.3rem, 4.2vw, 3.4rem);
     line-height: 1.3;
+    color: #ffffff;                   /* color de la frase: cambia aquí */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.65);   /* sombra para que se lea sobre la imagen */
+}
+/* contador de palabras */
+.caja-motivo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+}
+
+.caja-motivo textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contador {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    font-size: 0.75rem;
+    color: gray;
+    opacity: 0.8;
+    pointer-events: none;
+}
+/* donacion rapida*/
+.montos-rapidos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+/*preguntas frecuentes*/
+.botones-preguntas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
 
     color: #ffffff;
     /* color de la frase: cambia aquí */
