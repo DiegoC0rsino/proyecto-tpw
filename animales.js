@@ -63,7 +63,7 @@ const animales = [
     raza: "Mestiza-Naranja",
     historia: "Michi nacio en el albergue, su madre es una mascota de uno de nuestros voluntarios.",
     destacado: "¡Esta en busca de una familia la cual llenar de felicidad!"
-  },  {
+  }, {
     id: "luna",                      // único, en minúsculas, sin espacios ni tildes
     nombre: "Luna",
     imagen: "https://i.postimg.cc/YSk3dptJ/luna-jpg.jpg",
@@ -172,8 +172,17 @@ if (contenedor) {
     crearCampo(form, "nombre", "Ingrese su nombre y apellidos:", "text");
     crearCampo(form, "edad", "Ingrese su edad:", "number", { min: 1, max: 120 });
     crearCampo(form, "correo", "Ingrese su correo:", "email");
-    crearCampo(form, "historia", "Ingrese su motivo de adopción:", "textarea");
-
+    //
+    crearCampo(form, "historia", "Ingrese su motivo de adopción:", "textarea", { maxLength: 250 });
+    const motivo = form.querySelector("#historia");
+    const caja = crear("span", "caja-motivo");
+    const contador = crear("span", "contador", "0/250");
+    form.insertBefore(caja, motivo);
+    caja.append(motivo, contador);
+    motivo.oninput = function () {
+      contador.textContent = motivo.value.length + "/250";
+    };
+    //
     const oculto = crear("input");
     oculto.type = "hidden";
     oculto.name = "animal";
