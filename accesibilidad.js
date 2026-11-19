@@ -59,6 +59,20 @@ if (botonModoOscuro) {
 }
 actualizarBotonOscuro();
 
+// --- CONTROL DEL MENÚ RESPONSIVO ---
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll("#nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+        });
+    });
 // aviso donacion
 
 function elegirMonto(valor) {
