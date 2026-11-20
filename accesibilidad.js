@@ -1,15 +1,6 @@
 
-// ==========================================================
-//  CÓDIGO COMÚN A TODAS LAS PÁGINAS
-//  1) Modo daltónico y modo oscuro
-//  2) Menú hamburguesa
-//  3) Botón "Ver carrito" (solo aparece si hay productos)
-//  4) Ventanas emergentes (pop-ups): cerrar con ✕, Esc o clic afuera
-// ==========================================================
-
-
-// ---------- 1) MODO DALTÓNICO ----------
-
+// modo daltonico
+//modos:
 const botonDaltonismo = document.getElementById("boton-daltonismo");
 
 const modoGuardado = localStorage.getItem("modo-daltonico") === "activo";
@@ -44,7 +35,7 @@ if (botonDaltonismo) {
 }
 
 
-// ---------- MODO OSCURO ----------
+// modo oscuro
 
 const botonModoOscuro = document.getElementById("boton-modo-oscuro");
 const modoOscuroGuardado = localStorage.getItem("modo-oscuro") === "activo";
@@ -69,7 +60,7 @@ if (botonModoOscuro) {
 actualizarBotonOscuro();
 
 
-// ---------- 2) MENÚ HAMBURGUESA ----------
+//  menu hamburguesa
 
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
@@ -111,7 +102,7 @@ if (menuBtn && navLinks) {
         enlace.addEventListener("click", cerrarMenu);
     });
 
-    // tecla Esc
+    // Esc cierra el menú si está abierto
     document.addEventListener("keydown", function (evento) {
         if (evento.key === "Escape" && navLinks.classList.contains("open")) {
             cerrarMenu();
@@ -121,9 +112,9 @@ if (menuBtn && navLinks) {
 }
 
 
-// ---------- 3) BOTÓN "VER CARRITO" ----------
+// VER CARRITO
 // Solo se muestra cuando el usuario ya añadió algún producto
-// (y no en la propia página del carrito).
+
 
 function actualizarBotonCarrito() {
     const boton = document.getElementById("boton-carrito");
@@ -145,7 +136,7 @@ window.addEventListener("storage", actualizarBotonCarrito);   // cambios hechos 
 window.addEventListener("pageshow", actualizarBotonCarrito);  // al volver con la flecha "atrás"
 
 
-// ---------- 4) VENTANAS EMERGENTES (<dialog class="ventana-emergente">) ----------
+// las ventanas emergentes
 
 document.addEventListener("click", function (evento) {
     // botones con data-cerrar-ventana cierran su ventana

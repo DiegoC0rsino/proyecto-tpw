@@ -1,7 +1,3 @@
-// ==========================================================
-//  PÁGINA DE DONAR
-// ==========================================================
-
 // Botones de monto rápido: escriben el valor en el recuadro
 function elegirMonto(valor) {
     document.getElementById("monto").value = valor;

@@ -1,15 +1,4 @@
-// ==========================================================
-//  CARRITO DE COMPRAS
-//  Cuando el usuario pulsa "Agregar al carrito" (producto.html),
-//  el producto se guarda en el navegador (localStorage) con la
-//  clave "carrito". Aquí se leen, se dibujan como fichas y se
-//  pueden cambiar (+ / -), eliminar o vaciar. Con "Continuar
-//  proceso" se abre la ventana del método de pago y, al
-//  finalizar, se muestra la página de gracias.
-//
-//  Este archivo usa la lista "productos" de productos.js para
-//  tomar la foto, el precio y el stock actualizados.
-// ==========================================================
+
 
 const listaCarrito = document.getElementById("lista-carrito");
 const subtotalCarrito = document.getElementById("subtotal-carrito");
@@ -77,7 +66,7 @@ function crearBoton(texto, clases, alHacerClick, etiquetaAccesible) {
 function crearFicha(producto) {
     const ficha = crear("article", "ficha-carrito");
 
-    // --- información ---
+    // información
     const info = crear("div", "ficha-info");
     info.append(
         crear("h3", null, producto.nombre),
@@ -85,7 +74,7 @@ function crearFicha(producto) {
         crear("p", "ficha-stock", "Stock disponible: " + producto.stock)
     );
 
-    // --- control de cantidad  [-]  2  [+] ---
+    // controles para aumentar o disminuir la cantidad (no pasa del stock ni baja de 1)
     const control = crear("div", "control-cantidad");
     control.setAttribute("role", "group");
     control.setAttribute("aria-label", "Cantidad de " + producto.nombre);
@@ -102,7 +91,7 @@ function crearFicha(producto) {
 
     control.append(disminuir, crear("span", "cantidad-valor", String(producto.cantidad)), aumentar);
 
-    // --- total de la ficha y botón eliminar ---
+    // total del producto y botón de eliminar
     const lado = crear("div", "ficha-total");
     lado.append(
         crear("p", "ficha-etiqueta", "Total"),
@@ -112,7 +101,7 @@ function crearFicha(producto) {
         }, "Eliminar " + producto.nombre + " del carrito")
     );
 
-    // --- foto del producto (a la derecha) ---
+    // foto del producto (a la derecha en pantallas grandes)
     const foto = crear("img", "ficha-foto");
     foto.src = producto.imagen;
     foto.alt = producto.alt;

@@ -1,11 +1,7 @@
-// ==========================================================
-//  ANIMALES EN ADOPCIÓN
-//  Para agregar o editar una mascota, solo toca esta lista.
-//  Cada animal es un bloque { ... } separado por coma.
-// ==========================================================
+
 const animales = [
   {
-    id: "milo", // sin espacios ni tildes, único para cada animal
+    id: "milo", 
     nombre: "Milo",
     imagen: "https://i.postimg.cc/Bn2p58Gf/milo-jpg.jpg",
     alt: "No cargo la foto-perro",
@@ -64,7 +60,7 @@ const animales = [
     historia: "Michi nacio en el albergue, su madre es una mascota de uno de nuestros voluntarios.",
     destacado: "¡Esta en busca de una familia la cual llenar de felicidad!"
   }, {
-    id: "luna",                      // único, en minúsculas, sin espacios ni tildes
+    id: "luna",                    
     nombre: "Luna",
     imagen: "https://i.postimg.cc/YSk3dptJ/luna-jpg.jpg",
     alt: "Foto de Luna",
@@ -77,11 +73,9 @@ const animales = [
   }
 ];
 
-// ==========================================================
-//  A partir de aquí no necesitas tocar nada
-// ==========================================================
 
-// Crea un elemento: crear("p", "clase", "texto")
+
+// Crea un elemento: crear("p", "clase", "texto
 function crear(etiqueta, clase, texto) {
   const e = document.createElement(etiqueta);
   if (clase) e.className = clase;
@@ -119,7 +113,7 @@ function crearCampo(form, id, texto, tipo, extra) {
   form.append(label, campo);
 }
 
-// ---------- INDEX: dibuja las tarjetas ----------
+// index.html: dibuja las tarjetas de todos los animales
 const lista = document.getElementById("lista-animales");
 if (lista) {
   animales.forEach(function (a) {
@@ -138,7 +132,7 @@ if (lista) {
   });
 }
 
-// ---------- ADOPTAR: dibuja la info + el formulario del animal elegido ----------
+// adoptar.html: dibuja la ficha del animal y el formulario
 const contenedor = document.getElementById("contenedor-adopcion");
 if (contenedor) {
   const id = new URLSearchParams(window.location.search).get("id");

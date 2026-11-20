@@ -1624,7 +1624,7 @@ body.modo-oscuro .monto-pagar strong {
     pointer-events: none;
 }
 
-/* ---------- carrito vacío ---------- */
+/* carrito vacío  */
 .carrito-vacio {
     display: flex;
     flex-direction: column;
@@ -1647,7 +1647,7 @@ body.modo-oscuro .monto-pagar strong {
     color: #333333;
 }
 
-/* ---------- resumen de compra ---------- */
+/*  resumen de compra */
 .resumen-carrito {
     position: sticky;
     top: 20px;
@@ -1704,7 +1704,7 @@ body.modo-oscuro .monto-pagar strong {
     color: #ffffff;
 }
 
-/* ===== carrito: modo daltónico ===== */
+/*  carrito: modo daltónico  */
 body.modo-daltonico .titulo-carrito {
     color: #003b5c;
 }
@@ -1744,7 +1744,7 @@ body.modo-daltonico .resumen-total {
     border-top-color: #003b5c;
 }
 
-/* ===== carrito: modo oscuro ===== */
+/* arrito: modo oscuro  */
 body.modo-oscuro .titulo-carrito {
     color: #ffffff;
 }
@@ -1764,7 +1764,7 @@ body.modo-oscuro .btn-vaciar {
     color: #ffffff;
 }
 
-/* ===== carrito: pantallas pequeñas ===== */
+/*  carrito: pantallas pequeñas */
 @media (max-width: 900px) {
     .carrito-distribucion {
         grid-template-columns: 1fr;

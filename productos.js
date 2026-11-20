@@ -1,17 +1,13 @@
-// ==========================================================
-//  PRODUCTOS DE LA TIENDA
-//  Para agregar o editar un producto, solo toca esta lista.
-//  Cada producto es un bloque { ... } separado por coma.
-// ==========================================================
+
 const productos = [
   {
-    id: "raton", // sin espacios ni tildes, único para cada producto
+    id: "raton", 
     nombre: "Raton de juguete",
     imagen: "https://wongfood.vtexassets.com/arquivos/ids/516950-800-auto?v=637789953707370000&width=800&height=auto&aspect=true",
     alt: "no carga",
     precio: 11.00,
     disponibilidad: "Disponibilidad en todo lima",
-    stock: 7 // por ahora es un número de prueba entre 1 y 10
+    stock: 7 
   },
   {
     id: "pelota",
@@ -60,11 +56,7 @@ const productos = [
   }
 ];
 
-// ==========================================================
-//  A partir de aquí no necesitas tocar nada
-// ==========================================================
 
-// Crea un elemento: crear("p", "clase", "texto")
 function crear(etiqueta, clase, texto) {
   const e = document.createElement(etiqueta);
   if (clase) e.className = clase;
@@ -72,12 +64,12 @@ function crear(etiqueta, clase, texto) {
   return e;
 }
 
-// 11 -> "S/ 11.00"
+
 function formatearPrecio(valor) {
   return "S/ " + valor.toFixed(2);
 }
 
-// ---------- ARTÍCULOS: dibuja las tarjetas (nombre, precio y disponibilidad) ----------
+// area de la página donde se dibujan las tarjetas de productos
 const listaProductos = document.getElementById("lista-productos");
 if (listaProductos) {
   productos.forEach(function (p) {
@@ -103,7 +95,7 @@ if (listaProductos) {
   });
 }
 
-// ---------- PRODUCTO: página con la imagen a la izquierda y la info a la derecha ----------
+// producto.html: dibuja la ficha del producto y el botón para agregar al carrito
 const contenedorProducto = document.getElementById("contenedor-producto");
 if (contenedorProducto) {
   const id = new URLSearchParams(window.location.search).get("id");

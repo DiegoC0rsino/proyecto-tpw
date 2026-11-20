@@ -1,8 +1,3 @@
-// ==========================================================
-//  PREGUNTAS FRECUENTES (página Quiénes somos)
-//  Para agregar o editar una pregunta, solo toca esta lista.
-//  Cada pregunta es un bloque { ... } separado por coma.
-// ==========================================================
 const preguntas = [
   {
     pregunta: "¿Cómo puedo adoptar?",
@@ -30,9 +25,6 @@ const preguntas = [
   }
 ];
 
-// ==========================================================
-//  A partir de aquí no necesitas tocar nada
-// ==========================================================
 
 const listaPreguntas = document.getElementById("lista-preguntas");
 const ventanaPregunta = document.getElementById("ventana-pregunta");
