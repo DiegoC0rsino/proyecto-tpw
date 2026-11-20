@@ -17,13 +17,26 @@
         alt="No carga el logo" class="logo">
       <h1>Petsaving</h1>
     </a>
-    <nav class="header-nav" aria-label="Menú principal">
+
+    <div class="header-nav">
+      <a href="carrito.html" id="boton-carrito" class="btn-accion" hidden>Ver carrito</a>
+      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
+      <button type="button" id="boton-modo-oscuro" class="btn-accion" aria-pressed="false">Activar modo oscuro</button>
+    </div>
+
+    <button type="button" id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="nav-links" aria-label="Menú principal">
+      <button type="button" id="menu-cerrar" class="menu-cerrar" aria-label="Cerrar menú">✕</button>
+      <a href="index.html" class="btn-accion">Adoptar</a>
       <a href="articulos.html" class="btn-accion">Comprar artículos</a>
       <a href="donar.html" class="btn-accion">Donar</a>
       <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
-      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo
-        daltónico</button>
-      <button type="button" id="boton-modo-oscuro" class="btn-accion" aria-pressed="false">Activar modo oscuro</button>
     </nav>
   </header>
 
@@ -33,38 +46,38 @@
         alt="Quiénes somos" class="foto-quienes-somos">
       <div class="info-quienes-somos">
         <h2>¿Quiénes somos?</h2>
-        <p>Somos un grupo de personas amante de los animales el cual se dedica a la proteccion y bienestar de estos.
+        <p>Somos un grupo de personas amantes de los animales que se dedica a su protección y bienestar.
           Nuestro objetivo es proporcionar atención veterinaria de calidad, hogares para animales en situación de
           vulnerabilidad y promover la responsabilidad en el cuidado de las mascotas.</p>
-        <p> Puedes encontrarnos y dar mas seguimiento de nosotros en nuestras redes sociales.</p>
-        <p>¡Somos Petsaving una albergue que piensa en un mundo con nuestros de 4 patas!</p>
+        <p>Puedes encontrarnos y dar más seguimiento de nosotros en nuestras redes sociales.</p>
+        <p>¡Somos Petsaving, un albergue que piensa en un mundo con nuestros amigos de 4 patas!</p>
       </div>
     </article>
-    <!-- Preguntas frecuentes -->
+
+    <!-- Preguntas frecuentes: los botones los dibuja preguntas.js -->
     <article class="tarjeta-quienes-somos">
       <div class="info-quienes-somos">
         <h2>Preguntas frecuentes</h2>
+        <p>Haz clic en una pregunta para ver su respuesta.</p>
 
-        <div class="botones-preguntas">
-          <button type="button" class="btn-accion" onclick="mostrarRespuesta('resp1')">¿Cómo puedo adoptar?</button>
-          <button type="button" class="btn-accion" onclick="mostrarRespuesta('resp2')">¿Cómo puedo donar?</button>
-          <button type="button" class="btn-accion" onclick="mostrarRespuesta('resp3')">¿En qué se usan las
-            donaciones?</button>
-          <button type="button" class="btn-accion" onclick="mostrarRespuesta('resp4')">¿Dónde se entregan los
-            artículos?</button>
+        <div class="botones-preguntas" id="lista-preguntas">
+          <noscript>
+            <p>Activa JavaScript para ver las preguntas frecuentes.</p>
+          </noscript>
         </div>
-
-        <p class="respuesta" id="resp1" hidden>Elige a tu mascota en la página de inicio, completa el formulario de
-          adopción y te contactaremos por correo.</p>
-        <p class="respuesta" id="resp2" hidden>En la sección Donar eliges el monto y el método de pago: Yape, Plin o
-          tarjeta.</p>
-        <p class="respuesta" id="resp3" hidden>En alimentos para los animales del albergue, mejoras en los equipos de
-          veterinaria y medicamentos.</p>
-        <p class="respuesta" id="resp4" hidden>Cada artículo indica su disponibilidad: algunos en todo Lima y otros solo
-          en Villa María.</p>
       </div>
     </article>
   </main>
+
+  <!-- VENTANA EMERGENTE: pregunta arriba y su respuesta -->
+  <dialog id="ventana-pregunta" class="ventana-emergente" aria-labelledby="titulo-pregunta">
+    <section class="recuadro-ventana">
+      <button type="button" class="btn-accion ventana-cerrar" data-cerrar-ventana aria-label="Cerrar">✕</button>
+      <h2 id="titulo-pregunta">Pregunta</h2>
+      <p id="texto-respuesta" class="ventana-texto"></p>
+      <button type="button" class="btn-accion" data-cerrar-ventana>Entendido</button>
+    </section>
+  </dialog>
 
   <footer>
     <p class="copys">&copy; <strong>2026 PETSAVING</strong></p>
@@ -84,6 +97,8 @@
       </a>
     </div>
   </footer>
+
+  <script src="preguntas.js"></script>
   <script src="accesibilidad.js"></script>
 </body>
 

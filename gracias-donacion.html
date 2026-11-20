@@ -7,21 +7,35 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <header class="header">
     <a href="index.html" class="header-link">
-      <img src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg" alt="No carga el logo" class="logo">
+      <img
+        src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg"
+        alt="No carga el logo" class="logo">
       <h1>Petsaving</h1>
     </a>
-    <nav class="header-nav" aria-label="Menú principal">
+
+    <div class="header-nav">
+      <a href="carrito.html" id="boton-carrito" class="btn-accion" hidden>Ver carrito</a>
+      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
+      <button type="button" id="boton-modo-oscuro" class="btn-accion" aria-pressed="false">Activar modo oscuro</button>
+    </div>
+
+    <button type="button" id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="nav-links" aria-label="Menú principal">
+      <button type="button" id="menu-cerrar" class="menu-cerrar" aria-label="Cerrar menú">✕</button>
+      <a href="index.html" class="btn-accion">Adoptar</a>
       <a href="articulos.html" class="btn-accion">Comprar artículos</a>
       <a href="donar.html" class="btn-accion">Donar</a>
       <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
-      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
-            <button id="boton-modo-oscuro" class="btn-accion">Activar modo oscuro</button>
     </nav>
   </header>
-
   <main class="contenedor-confirmacion">
     <section class="recuadro-confirmacion">
       <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Check" class="icono-check">

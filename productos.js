@@ -160,40 +160,44 @@ if (contenedorProducto) {
     boton.type = "button";
 
     boton.addEventListener("click", function () {
-        const cantidadIngresada = Number(campo.value);
+      const cantidadIngresada = Number(campo.value);
 
-        if (!Number.isInteger(cantidadIngresada) || cantidadIngresada < 1) {
-            alert("Ingresa una cantidad válida");
-            return;
+      if (!Number.isInteger(cantidadIngresada) || cantidadIngresada < 1) {
+        alert("Ingresa una cantidad válida");
+        return;
+      }
+
+      // el carrito se guarda en el navegador (localStorage)
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const productoExistente = carrito.find(function (item) { return item.id === p.id; });
+
+      if (productoExistente) {
+        if (productoExistente.cantidad + cantidadIngresada > p.stock) {
+          alert("No hay suficiente stock disponible");
+          return;
         }
 
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const productoExistente = carrito.find(item => item.id === p.id);
-
-        if (productoExistente) {
-            if (productoExistente.cantidad + cantidadIngresada > p.stock) {
-                alert("No hay suficiente stock disponible");
-                return;
-            }
-
-            productoExistente.cantidad += cantidadIngresada;
-        } else {
-            if (cantidadIngresada > p.stock) {
-                alert("No hay suficiente stock disponible");
-                return;
-            }
-
-            carrito.push({
-                id: p.id,
-                nombre: p.nombre,
-                precio: p.precio,
-                cantidad: cantidadIngresada,
-                stock: p.stock
-            });
+        productoExistente.cantidad += cantidadIngresada;
+      } else {
+        if (cantidadIngresada > p.stock) {
+          alert("No hay suficiente stock disponible");
+          return;
         }
 
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        alert("Producto agregado correctamente al carrito");
+        carrito.push({
+          id: p.id,
+          nombre: p.nombre,
+          precio: p.precio,
+          imagen: p.imagen,
+          alt: p.alt,
+          cantidad: cantidadIngresada,
+          stock: p.stock
+        });
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      actualizarBotonCarrito();   // hace aparecer "Ver carrito" en el header
+      alert("Se ha añadido " + p.nombre + " al carrito");
     });
 
     info.append(

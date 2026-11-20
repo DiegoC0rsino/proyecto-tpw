@@ -1,52 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi carrito - Petsaving</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petsaving - Mi carrito</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header class="header">
-        <h1>Petsaving</h1>
+  <header class="header">
+    <a href="index.html" class="header-link">
+      <img
+        src="https://thumbs.dreamstime.com/b/creative-pet-care-logo-featuring-white-silhouettes-dog-cat-looking-upwards-integrated-inside-large-blue-animal-paw-472730419.jpg"
+        alt="No carga el logo" class="logo">
+      <h1>Petsaving</h1>
+    </a>
 
-        <nav class="header-nav con-carrito">
-            <a href="index.html" class="btn-accion">Inicio</a>
-            <a href="articulos.html" class="btn-accion">Seguir comprando</a>
-            <button type="button" id="modo-daltonico" class="btn-accion">
-                Modo daltónico
-            </button>
-            <button type="button" id="modo-oscuro" class="btn-accion">
-                Modo oscuro
-            </button>
-        </nav>
-    </header>
+    <div class="header-nav">
+      <a href="carrito.html" id="boton-carrito" class="btn-accion" hidden>Ver carrito</a>
+      <button type="button" id="boton-daltonismo" class="btn-accion" aria-pressed="false">Activar modo daltónico</button>
+      <button type="button" id="boton-modo-oscuro" class="btn-accion" aria-pressed="false">Activar modo oscuro</button>
+    </div>
 
-    <main>
-        <h2>Mi carrito de compras</h2>
+    <button type="button" id="menu-btn" class="menu-btn" aria-label="Abrir menú" aria-expanded="false"
+      aria-controls="nav-links">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-        <section id="lista-carrito">
-            <!-- Los productos aparecerán aquí -->
-        </section>
+    <nav id="nav-links" aria-label="Menú principal">
+      <button type="button" id="menu-cerrar" class="menu-cerrar" aria-label="Cerrar menú">✕</button>
+      <a href="index.html" class="btn-accion">Adoptar</a>
+      <a href="articulos.html" class="btn-accion">Comprar artículos</a>
+      <a href="donar.html" class="btn-accion">Donar</a>
+      <a href="quienes-somos.html" class="btn-accion">Quiénes somos</a>
+    </nav>
+  </header>
 
-        <section class="resumen-carrito">
-            <h3>Resumen de compra</h3>
-            <p>Subtotal: S/ <span id="subtotal-carrito">0.00</span></p>
-            <p><strong>Total: S/ <span id="total-carrito">0.00</span></strong></p>
+  <main>
+    <h2 class="titulo-carrito">Mi carrito de compras</h2>
 
-            <button type="button" id="vaciar-carrito" class="btn-accion">
-                Vaciar carrito
-            </button>
+    <div class="carrito-distribucion">
 
-            <button type="button" id="finalizar-compra" class="btn-accion">
-                Finalizar compra
-            </button>
-        </section>
-    </main>
+      <!-- Aquí carrito.js dibuja una ficha por cada producto -->
+      <section id="lista-carrito" class="lista-carrito" aria-live="polite">
+        <noscript>
+          <p>Activa JavaScript para ver tu carrito.</p>
+        </noscript>
+      </section>
 
-    <script src="carrito.js"></script>
-    <script src="accesibilidad.js"></script>
+      <section class="resumen-carrito">
+        <h3>Resumen de compra</h3>
+        <div class="resumen-fila">
+          <span>Artículos</span>
+          <span id="unidades-carrito">0</span>
+        </div>
+        <div class="resumen-fila">
+          <span>Subtotal</span>
+          <span>S/ <span id="subtotal-carrito">0.00</span></span>
+        </div>
+        <div class="resumen-fila resumen-total">
+          <span>Total</span>
+          <span>S/ <span id="total-carrito">0.00</span></span>
+        </div>
+
+        <button type="button" id="continuar-proceso" class="btn-accion btn-continuar">Continuar proceso</button>
+        <button type="button" id="vaciar-carrito" class="btn-accion btn-vaciar">Vaciar carrito</button>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- VENTANA EMERGENTE: método de pago (se abre con "Continuar proceso") -->
+  <dialog id="ventana-pago" class="ventana-emergente" aria-labelledby="titulo-pago">
+    <form id="form-pago" class="recuadro-ventana form-pago">
+      <button type="button" class="btn-accion ventana-cerrar" data-cerrar-ventana aria-label="Cerrar">✕</button>
+
+      <h2 id="titulo-pago">Introduzca su método de pago</h2>
+
+      <div class="monto-pagar">
+        <span>Monto a pagar</span>
+        <strong>S/ <span id="monto-pago">0.00</span></strong>
+      </div>
+
+      <h3>Método de pago</h3>
+
+      <div class="metodo-pago">
+        <input type="radio" id="pago-yape" name="metodo-pago" value="yape" required>
+        <label for="pago-yape">Yape</label>
+        <img src="https://marketingperu.beglobal.biz/wp-content/uploads/2024/06/1-yape-logo-transparencia-2.png"
+          alt="Yape">
+      </div>
+
+      <div class="metodo-pago">
+        <input type="radio" id="pago-plin" name="metodo-pago" value="plin" required>
+        <label for="pago-plin">Plin</label>
+        <img src="https://marketingperu.beglobal.biz/wp-content/uploads/2026/07/Logo-de-Plin-PNG.png" alt="Plin">
+      </div>
+
+      <div class="metodo-pago">
+        <input type="radio" id="pago-tarjeta" name="metodo-pago" value="tarjeta" required>
+        <label for="pago-tarjeta">Tarjeta de debito/credito</label>
+        <img src="https://cdn-icons-png.flaticon.com/512/5163/5163845.png" alt="Tarjeta">
+      </div>
+
+      <button type="submit" class="btn-accion btn-finalizar">Finalizar compra</button>
+    </form>
+  </dialog>
+
+  <footer>
+    <p class="copys">&copy; <strong>2026 PETSAVING</strong></p>
+    <div class="redes-sociales">
+      <a href="https://w.app/ymnofl" target="_blank">
+        <img
+          src="https://w7.pngwing.com/pngs/661/360/png-transparent-whatsapp-icon-logo-whatsapp-logo-text-instant-messaging-whatsapp-logo-png-thumbnail.png"
+          alt="WhatsApp" class="icono-red">
+      </a>
+      <a href="https://www.facebook.com/" target="_blank">
+        <img src="https://cdn.pixabay.com/photo/2021/12/10/16/37/facebook-6860914_1280.png" alt="Facebook"
+          class="icono-red">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbgV9q523k1LLLFuRnYSXq_1jv1Wl3xVPT9if-sh0lgA&s"
+          alt="Instagram" class="icono-red">
+      </a>
+    </div>
+  </footer>
+
+  <script src="productos.js"></script>
+  <script src="carrito.js"></script>
+  <script src="accesibilidad.js"></script>
 </body>
+
 </html>

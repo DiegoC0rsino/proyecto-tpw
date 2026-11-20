@@ -1071,30 +1071,43 @@ body.modo-oscuro main {
     gap: 10px;
     margin-top: 10px;
 }
->>>>>>> origin/main
-
->>>>>>> main
-    color: #ffffff;
-    /* color de la frase: cambia aquí */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.65);
-    /* sombra para que se lea sobre la imagen */
+/* ==========================================================
+   AJUSTE GENERAL: el atributo "hidden" siempre oculta el elemento
+   ========================================================== */
+[hidden] {
+    display: none !important;
 }
 
-/* --- MENÚ RESPONSIVO --- */
+
+/* ==========================================================
+   HEADER + MENÚ HAMBURGUESA (igual en todas las páginas)
+   ========================================================== */
 .header {
     position: relative;
 }
 
+.header-link {
+    order: 1;
+}
+
+/* botones visibles: Ver carrito (si hay productos), daltónico y oscuro */
+.header-nav {
+    order: 2;
+}
+
+/* icono de hamburguesa */
 .menu-btn {
+    order: 3;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-shrink: 0;
     width: 34px;
     height: 24px;
+    padding: 0;
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1001;
 }
 
 .menu-btn span {
@@ -1103,66 +1116,676 @@ body.modo-oscuro main {
     height: 3px;
     background-color: #ffffff;
     border-radius: 2px;
+    transition: transform 0.3s ease;
 }
 
+.menu-btn:hover span:nth-child(1) {
+    transform: translateY(-2px);
+}
+
+.menu-btn:hover span:nth-child(3) {
+    transform: translateY(2px);
+}
+
+/* menú lateral: solo Adoptar, Comprar artículos, Donar y Quiénes somos */
 #nav-links {
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 1000;
+    box-sizing: border-box;
     width: 280px;
+    max-width: 85vw;
     height: 100vh;
-    background-color: #214e38;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
     gap: 12px;
-    padding: 5rem 1.5rem 2rem 1.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
+    padding: 5rem 1.5rem 2rem;
+    background-color: #214e38;
     box-shadow: -4px 0 12px rgba(0, 0, 0, 0.25);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
 }
 
 #nav-links.open {
     transform: translateX(0);
-}
-
-#nav-links.open {
-    transform: translateX(0);
-    justify-content: flex-start;
-    align-items: stretch;
-    padding-top: 4.5rem;
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s;
 }
 
 #nav-links .btn-accion {
-    margin-top: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    min-height: 46px;
+    margin: 0;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.menu-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.menu-cerrar:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* capa oscura detrás del menú */
+.menu-fondo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+body.menu-abierto .menu-fondo {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+body.menu-abierto {
+    overflow: hidden;
+}
+
+/* ===== menú: modo daltónico ===== */
+body.modo-daltonico #nav-links {
+    background-color: #003b5c;
+    border-left: 4px solid #ffcc00;
+}
+
+body.modo-daltonico .menu-cerrar {
+    color: #ffffff;
+}
+
+/* ===== menú: modo oscuro ===== */
+body.modo-oscuro #nav-links {
+    background-color: #1e1e1e;
+    border-left: 1px solid #555555;
+}
+
+body.modo-oscuro .menu-fondo {
+    background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+/* modo oscuro: el logo y el grupo de botones del header sin fondo propio */
+body.modo-oscuro .header-link,
+body.modo-oscuro .header-nav,
+body.modo-oscuro .redes-sociales {
+    background-color: transparent !important;
+}
+
+/* ===== header en pantallas medianas y pequeñas: logo + hamburguesa arriba, botones debajo ===== */
+@media (max-width: 960px) {
+    .menu-btn {
+        order: 2;
+    }
+
+    .header-nav {
+        order: 3;
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-nav {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
+
+
+/* ==========================================================
+   VENTANAS EMERGENTES (pop-ups): adopción, preguntas y pago
+   ========================================================== */
+.ventana-emergente {
+    width: calc(100% - 30px);
+    max-width: 480px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    overflow: visible;
+}
+
+.ventana-emergente::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.ventana-emergente[open] {
+    animation: entrada-ventana 0.3s ease;
+}
+
+@keyframes entrada-ventana {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* mientras hay una ventana abierta la página de atrás no se desplaza */
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+/* el recuadro de la ventana (mismo estilo que la confirmación de antes) */
+.recuadro-ventana {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-height: 90vh;
+    margin: 0;
+    padding: 40px 30px 30px;
+    overflow-y: auto;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #dcf4d9;
+    box-shadow: 3px 3px 6px gray;
+}
+
+.recuadro-ventana h2 {
+    margin: 0;
+    color: #1f627a;
+}
+
+.recuadro-ventana h3 {
+    margin: 6px 0 0;
+    color: #050505;
+}
+
+.recuadro-ventana p {
+    margin: 0;
+    color: #333333;
+    line-height: 1.5;
+}
+
+/* el check de la ventana de adopción aparece creciendo */
+.recuadro-ventana .icono-check {
+    margin-bottom: 4px;
+    animation: aparecer-check 0.6s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes aparecer-check {
+    from {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* respuesta de las preguntas frecuentes: texto alineado a la izquierda */
+.recuadro-ventana .ventana-texto {
+    text-align: left;
+}
+
+.recuadro-ventana .btn-accion {
+    margin-top: 6px;
+}
+
+/* botón ✕ de la esquina */
+.recuadro-ventana .ventana-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.recuadro-ventana .ventana-cerrar:hover {
+    transform: scale(1.12);
+}
+
+/* ventana del método de pago (parecida al apartado Donar) */
+.form-pago {
+    align-items: stretch;
+    text-align: left;
+}
+
+.form-pago h2,
+.form-pago h3 {
     text-align: center;
 }
-#nav-links .btn-accion {
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 44px;
-  margin: 0;
-  padding: 10px 14px;
-  text-align: center;
-  font-size: 0.95rem;
-}
-#nav-links.open {
-  transform: translateX(0);
-  justify-content: flex-start;
-  align-items: stretch;
-  padding-top: 6rem;
+
+.monto-pagar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 15px;
+    background-color: #eef4d9;
+    box-shadow: 3px 3px 6px gray;
 }
 
+.monto-pagar span {
+    color: #061055;
+}
 
-/* Evitar que las tarjetas del carrito se agranden al pasar el mouse */
-#lista-carrito .tarjeta-producto:hover,
-#lista-carrito .tarjeta-producto:focus-within {
-    transform: none;
+.monto-pagar strong {
+    font-size: 1.6rem;
+    color: #1f627a;
+}
+
+.monto-pagar strong span {
+    color: inherit;
+}
+
+.form-pago .btn-finalizar {
+    margin-top: 12px;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+/* "Finalizar compra" bloqueado hasta elegir el método de pago (sin avisos) */
+.form-pago:invalid button[type="submit"] {
+    opacity: 0.95;
+    filter: grayscale(7);
+    pointer-events: none;
+}
+
+/* ===== ventanas: modo daltónico ===== */
+body.modo-daltonico .recuadro-ventana {
+    background-color: #ffffff;
+    border: 3px solid #003b5c;
+}
+
+body.modo-daltonico .recuadro-ventana h2,
+body.modo-daltonico .recuadro-ventana h3,
+body.modo-daltonico .recuadro-ventana p {
+    color: #111111;
+}
+
+body.modo-daltonico .monto-pagar {
+    background-color: #ffffff;
+    border: 2px solid #003b5c;
+    box-shadow: none;
+}
+
+body.modo-daltonico .monto-pagar span {
+    color: #111111;
+}
+
+body.modo-daltonico .monto-pagar strong {
+    color: #003b5c;
+}
+
+/* ===== ventanas: modo oscuro ===== */
+body.modo-oscuro .recuadro-ventana {
+    border: 1px solid #555555;
+}
+
+body.modo-oscuro .monto-pagar {
+    border: 1px solid #555555;
+    box-shadow: none;
+}
+
+body.modo-oscuro .monto-pagar strong {
+    color: #ffffff;
 }
 
 
+/* ==========================================================
+   CARRITO DE COMPRAS
+   ========================================================== */
+.titulo-carrito {
+    margin: 0;
+    text-align: center;
+    color: #1b4332;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* lista de productos a la izquierda y resumen a la derecha */
+.carrito-distribucion {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    align-items: start;
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lista-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+/* ---------- ficha de cada producto: info | cantidad | total | foto ---------- */
+.ficha-carrito {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto 150px;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border-radius: 20px;
+    background-color: #61977b;
+    border: 1px solid #ffde96;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.ficha-info h3 {
+    margin: 0 0 8px;
+    font-size: 1.3em;
+    color: #f6faf4;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.ficha-info p {
+    margin: 3px 0;
+    color: #fbf8f8;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* control de cantidad:  ( − )  2  ( + ) */
+.control-cantidad {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ffde96;
+}
+
+.btn-cantidad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.btn-cantidad:hover {
+    transform: scale(1.12);
+}
+
+.cantidad-valor {
+    min-width: 34px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* total de la ficha + botón eliminar */
+.ficha-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 110px;
+}
+
+.ficha-total p {
+    margin: 0;
+    color: #fbf8f8;
+}
+
+.ficha-etiqueta {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ficha-importe {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.btn-eliminar {
+    margin-top: 8px;
+    padding: 8px 18px;
+    border: 2px solid #ffde96;
+    border-radius: 999px;
+    background-color: transparent;
+    font-size: 0.95rem;
+}
+
+.btn-eliminar:hover {
+    background-color: #b5534f;
+    border-color: #b5534f;
+}
+
+/* foto del producto a la derecha de la ficha */
+.ficha-foto {
+    display: block;
+    width: 150px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* botones bloqueados (+ al llegar al stock, − en 1, y los del resumen con el carrito vacío) */
+.btn-accion:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ---------- carrito vacío ---------- */
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #dcf4d9;
+    box-shadow: 3px 3px 6px gray;
+}
+
+.carrito-vacio h3 {
+    margin: 0;
+    color: #1f627a;
+}
+
+.carrito-vacio p {
+    margin: 0 0 8px;
+    color: #333333;
+}
+
+/* ---------- resumen de compra ---------- */
+.resumen-carrito {
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 20px;
+    background-color: #dcf4d9;
+    box-shadow: 3px 3px 6px gray;
+}
+
+.resumen-carrito h3 {
+    margin: 0 0 4px;
+    color: #050505;
+}
+
+.resumen-fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 1.05rem;
+}
+
+.resumen-fila span {
+    color: #061055;
+}
+
+.resumen-total {
+    padding-top: 12px;
+    border-top: 2px dashed #61977b;
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.btn-continuar {
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.btn-vaciar {
+    width: 100%;
+    border: 2px solid #53af4c;
+    background-color: transparent;
+    color: #1f4d3a;
+}
+
+.btn-vaciar:hover {
+    background-color: #53af4c;
+    color: #ffffff;
+}
+
+/* ===== carrito: modo daltónico ===== */
+body.modo-daltonico .titulo-carrito {
+    color: #003b5c;
+}
+
+body.modo-daltonico .ficha-carrito {
+    background-color: #003b5c;
+    border: 3px solid #ffcc00;
+}
+
+body.modo-daltonico .ficha-info h3,
+body.modo-daltonico .ficha-info p,
+body.modo-daltonico .ficha-total p,
+body.modo-daltonico .cantidad-valor {
+    color: #ffffff;
+}
+
+body.modo-daltonico .control-cantidad {
+    background-color: transparent;
+    border: 2px solid #ffcc00;
+}
+
+body.modo-daltonico .resumen-carrito,
+body.modo-daltonico .carrito-vacio {
+    background-color: #ffffff;
+    border: 2px solid #003b5c;
+    box-shadow: none;
+}
+
+body.modo-daltonico .resumen-carrito h3,
+body.modo-daltonico .resumen-fila span,
+body.modo-daltonico .carrito-vacio h3,
+body.modo-daltonico .carrito-vacio p {
+    color: #111111;
+}
+
+body.modo-daltonico .resumen-total {
+    border-top-color: #003b5c;
+}
+
+/* ===== carrito: modo oscuro ===== */
+body.modo-oscuro .titulo-carrito {
+    color: #ffffff;
+}
+
+body.modo-oscuro .ficha-carrito,
+body.modo-oscuro .resumen-carrito,
+body.modo-oscuro .carrito-vacio {
+    border: 1px solid #555555;
+    box-shadow: none;
+}
+
+body.modo-oscuro .control-cantidad {
+    border: 1px solid #777777;
+}
+
+body.modo-oscuro .btn-vaciar {
+    color: #ffffff;
+}
+
+/* ===== carrito: pantallas pequeñas ===== */
+@media (max-width: 900px) {
+    .carrito-distribucion {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen-carrito {
+        position: static;
+    }
+}
+
+@media (max-width: 650px) {
+    .ficha-carrito {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .ficha-foto {
+        order: -1;
+        width: 100%;
+        max-width: 280px;
+    }
+}

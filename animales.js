@@ -166,8 +166,6 @@ if (contenedor) {
 
     // lado derecho: formulario
     const form = crear("form", "formulario-adopcion");
-    form.action = "confirmacion.html";
-    form.method = "get";
     form.appendChild(crear("h3", null, "Formulario de Adopción"));
     crearCampo(form, "nombre", "Ingrese su nombre y apellidos:", "text");
     crearCampo(form, "edad", "Ingrese su edad:", "number", { min: 1, max: 120 });
@@ -183,15 +181,21 @@ if (contenedor) {
       contador.textContent = motivo.value.length + "/250";
     };
     //
-    const oculto = crear("input");
-    oculto.type = "hidden";
-    oculto.name = "animal";
-    oculto.value = a.nombre;
-
     const boton = crear("button", null, "Solicitar adopción");
     boton.type = "submit";
-    form.append(oculto, boton);
+    form.appendChild(boton);
 
+    // al enviar: en vez de cambiar de página se abre la ventana emergente
+    // (el botón ya está bloqueado por CSS mientras falte algún dato)
+    const ventana = document.getElementById("ventana-adopcion");
+    form.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+      ventana.showModal();
+    });
+    // al cerrar la ventana (Aceptar, Esc o clic afuera) se vuelve a los animales
+    ventana.addEventListener("close", function () {
+      window.location.href = "index.html";
+    });
     tarjeta.append(info, form);
     contenedor.appendChild(tarjeta);
   }
